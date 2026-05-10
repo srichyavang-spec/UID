@@ -1,0 +1,234 @@
+.chat-layout 
+    {
+      display: grid; /* Otherwise it displays as a stack */
+      grid-template-columns: 260px 1fr; /* fr adjusts to the device width */
+      gap: 24px;
+      min-height: calc(100vh - var(--nav-h) - 120px); 
+      /* Here we are handling the height if content goes out of range(min height)
+         calc() for handling the mixed units. 
+      */  
+    }
+ 
+    @media (max-width: 768px) /* We adjust the columns and their length according to the device.*/
+    { 
+        .chat-layout 
+        {
+         grid-template-columns: 1fr; 
+        } 
+    }
+ 
+    /* Sidebar - Usage of CSS Box Model */
+    .chat-sidebar 
+    {
+      background: var(--surface); /*var() gets the value from the source) */
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      height: fit-content;
+      position: sticky;
+      top: calc(var(--nav-h) + 20px);  /* We are saying position of sidebar */
+    }
+ 
+    .sidebar-section-title 
+    {
+      font-family: 'Space Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 3px;
+      color: var(--muted2); /* Muted2 is more faded version of muted */
+      margin-bottom: 12px;
+    }
+ 
+    .online-user 
+    {
+      display: flex; /* It maintains the text beside bullet point, otherwise they get stacked */
+      align-items: center; /* Otherwise dot is slightly above the text */
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: var(--radius);
+      margin-bottom: 4px;
+      transition: background 0.2s;
+    }
+ 
+    .online-user:hover 
+    { 
+      background: var(--surface2); /* We get more lighter colour when we hover over it. */
+    }
+ 
+    .online-dot 
+    {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 6px var(--green); /* Applies green colour throughout the circle */
+      flex-shrink: 0; /* Dot size must not shrink. Remains same irrespective of username length */
+    }
+ 
+    .user-name-chip 
+    {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 1px;
+      color: var(--muted);
+    }
+ 
+    /* Main chat - Chatting Window */
+    .chat-main 
+    {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-height: 540px;
+    }
+ 
+    .chat-header 
+    {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(0,0,0,0.2);
+    }
+ 
+    .chat-header-left 
+    {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+ 
+    .channel-tag 
+    {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--amber);
+    }
+ 
+    .channel-desc 
+    {
+      font-size: 12px;
+      color: var(--muted2);
+    }
+ 
+    .chat-box 
+    {
+      flex: 1;
+      padding: 24px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-height: 400px;
+      max-height: 520px;
+    }
+   /* Creating our own scrollbar within the messages sent */
+    .chat-box::-webkit-scrollbar { width: 4px; }
+    .chat-box::-webkit-scrollbar-track { background: transparent; }
+    .chat-box::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 4px; }
+ 
+    .chat-msg 
+    {
+      display: flex; /* Messages get the structure of bubble and everything */
+      flex-direction: column;
+      gap: 4px; /* Less gap between name and gap */
+      align-items: flex-start; /* Controls left and right alignment of messages */
+      animation: riseIn 0.3s ease both;
+    }
+ 
+    .chat-msg.own 
+    {
+       align-items: flex-end; 
+    }
+ 
+    .chat-meta 
+    {
+      display: flex;
+      gap: 8px; /* More space between name and time */
+      align-items: center;
+    }
+ 
+    .chat-user 
+    {
+      font-family: 'Space Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 1.5px;
+      color: var(--amber);
+    }
+ 
+    .chat-time 
+    {
+      font-family: 'Space Mono', monospace;
+      font-size: 8px;
+      color: var(--muted2);
+    }
+ 
+    .chat-bubble 
+    {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px 12px 12px 2px;
+      padding: 10px 16px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text);
+      max-width: 480px;
+      word-break: break-word;
+    }
+ 
+    .chat-msg.own .chat-bubble 
+    {
+      background: rgba(245,158,11,0.08);
+      border-color: rgba(245,158,11,0.2);
+      border-radius: 12px 12px 2px 12px;
+      color: var(--text);
+    }
+ 
+    .chat-input-row 
+    {
+      display: flex;
+      gap: 10px;
+      padding: 18px 24px;
+      border-top: 1px solid var(--border);
+      background: rgba(0,0,0,0.1);
+    }
+ 
+    .chat-input-row input 
+    {
+      flex: 1;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      color: var(--text);
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+ 
+    .chat-input-row input:focus 
+    {
+      border-color: rgba(245,158,11,0.35);
+      box-shadow: 0 0 0 2px rgba(245,158,11,0.06);
+    }
+ 
+    .chat-input-row input::placeholder { color: var(--muted2); }
+ 
+    /* Pinned notices */
+    .pinned-notice {
+      background: rgba(245,158,11,0.04);
+      border: 1px solid rgba(245,158,11,0.12);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+ 
+    .pinned-notice strong { color: var(--amber); }

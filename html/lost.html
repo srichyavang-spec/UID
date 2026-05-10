@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RETRIEVAL — Report Lost</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/lost.css">
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="siteLoader" class="site-loader">
+  <div class="loader-icon">🔴</div>
+  <div class="loader-bar-wrap"><div class="loader-bar" style="background:var(--red)"></div></div>
+  <div class="loader-label">LOADING LOST REPORTS</div>
+</div>
+
+<!-- NAV -->
+<header class="top-nav">
+  <a href="../index.html" class="nav-brand">
+    <div class="nav-brand-icon">📡</div>
+    <div class="nav-brand-text">
+      <span class="name">TRADE & TRACK</span>
+      <span class="sub"> PLATFORM</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">HOME</a></li>
+    <li><a href="lost.html" class="active">LOST</a></li>
+    <li><a href="found.html">FOUND</a></li>
+    <li><a href="trade.html">TRADE</a></li>
+    <li><a href="chat.html">CHANNEL</a></li>
+    <li><a href="profile.html">PROFILE</a></li>
+    <li><a href="AboutUs.html">ABOUT</a></li>
+  </ul>
+
+  <div class="nav-tools">
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme">
+      <i class="fas fa-moon"></i>
+    </button>
+  </div>
+
+  <div class="nav-status">
+    <div class="status-dot" style="background:var(--red);box-shadow:0 0 8px var(--red);"></div>
+    <span class="status-text">LOST REPORTS</span>
+  </div>
+</header>
+
+<div class="page-wrap">
+  <p class="page-eyebrow rise-1">// LOST ITEM REPORT</p>
+  <h1 class="page-title rise-2">REPORT A<br><span class="accent-red">LOST ITEM</span></h1>
+  <p class="page-subtitle rise-3">Submit your report to the network. Include as much detail as possible to improve match probability.</p>
+
+  <div class="layout">
+
+    <!-- FORM -->
+    <div class="rise-3">
+      <div class="report-panel">
+        <div class="report-panel-header">
+          <div class="dot"></div>
+          <h2>LOST REPORT</h2>
+        </div>
+        <div class="report-form">
+
+          <div class="alert-box">
+            <i class="fas fa-exclamation-circle"></i>
+            <span>All reports are visible to network operatives. Do not include sensitive personal data beyond contact info.</span>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">ITEM NAME *</label>
+            <input id="nameInput" class="form-input" required placeholder="e.g. Black leather wallet">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">LAST KNOWN LOCATION *</label>
+            <input id="locationInput" required class="form-input" placeholder="e.g. Central Park, NY — near main fountain">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">CATEGORY</label>
+            <select id="categorySelect" class="form-select">
+              <option value="general">GENERAL</option>
+              <option value="electronics">ELECTRONICS</option>
+              <option value="clothing">CLOTHING & ACCESSORIES</option>
+              <option value="documents">DOCUMENTS & ID</option>
+              <option value="keys">KEYS & CARDS</option>
+              <option value="bags">BAGS & LUGGAGE</option>
+              <option value="jewelry">JEWELRY & WATCHES</option>
+              <option value="pets">PETS</option>
+              <option value="other">OTHER</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">DESCRIPTION</label>
+            <textarea id="descInput" required class="form-textarea" placeholder="Describe the item — color, size, distinctive markings, serial numbers..."></textarea>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">ITEM IMAGE <span style="color:var(--muted2);font-size:10px">(OPTIONAL)</span></label>
+            <div class="image-upload-area" id="uploadArea">
+              <input type="file" id="imageInput" accept="image/*" onchange="previewImage(event)">
+              <div class="image-upload-icon">📷</div>
+              <div class="image-upload-label">CLICK TO UPLOAD PHOTO</div>
+              <div style="font-size:11px;color:var(--muted2);margin-top:4px">JPG, PNG, WEBP — MAX 5MB</div>
+            </div>
+            <div class="image-preview-wrap" id="previewWrap">
+              <img id="previewImg" src="" alt="Preview">
+              <button class="image-preview-remove" onclick="removeImage()" title="Remove image">✕</button>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">CONTACT INFO</label>
+            <input id="contactInput" required class="form-input" placeholder="Phone, email, or username">
+          </div>
+
+          <button class="btn btn-primary" onclick="addItem('lost')" style="width:100%;padding:14px;">
+            <i class="fas fa-satellite-dish"></i> TRANSMIT REPORT
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div>
+      <div class="results-header">
+        <div>
+          <p style="font-family:'Space Mono',monospace;font-size:8px;color:var(--muted2);letter-spacing:3px;margin-bottom:4px">ACTIVE DATABASE</p>
+          <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:700;letter-spacing:1px">LOST ITEM REGISTRY</h2>
+        </div>
+        <span class="results-count" id="resultsCount">— RECORDS</span>
+      </div>
+
+      <div class="search-bar" style="max-width:100%">
+        <i class="fas fa-search search-icon"></i>
+        <input id="searchInput" placeholder="Search by name, location, category..." oninput="searchItems()">
+      </div>
+
+      <div class="filter-bar">
+        <button class="chip active" data-filter="lost" onclick="filterType('lost', this)">ALL LOST</button>
+        <button class="chip" data-filter="electronics" onclick="filterByCategory('electronics', this)">ELECTRONICS</button>
+        <button class="chip" data-filter="documents" onclick="filterByCategory('documents', this)">DOCUMENTS</button>
+        <button class="chip" data-filter="keys" onclick="filterByCategory('keys', this)">KEYS</button>
+        <button class="chip" data-filter="bags" onclick="filterByCategory('bags', this)">BAGS</button>
+      </div>
+
+      <div class="items-grid" id="itemsGrid"></div>
+    </div>
+
+  </div>
+</div>
+
+<div id="toast"></div>
+<script src="../javascript/app.js"></script>
+<script src="../javascript/lost.js"></script>
+</body>
+</html>

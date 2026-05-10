@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RETRIEVAL — Report Found</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/found.css">
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="siteLoader" class="site-loader">
+  <div class="loader-icon" style="background:var(--green)">🟢</div>
+  <div class="loader-bar-wrap"><div class="loader-bar" style="background:var(--green)"></div></div>
+  <div class="loader-label">LOADING FOUND REPORTS</div>
+</div>
+
+<!-- NAV -->
+<header class="top-nav">
+  <a href="../index.html" class="nav-brand">
+    <div class="nav-brand-icon">📡</div>
+    <div class="nav-brand-text">
+      <span class="name">TRADE & TRACK</span>
+      <span class="sub"> PLATFORM</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">HOME</a></li>
+    <li><a href="lost.html">LOST</a></li>
+    <li><a href="found.html" class="active">FOUND</a></li>
+    <li><a href="trade.html">TRADE</a></li>
+    <li><a href="chat.html">CHANNEL</a></li>
+    <li><a href="profile.html">PROFILE</a></li>
+    <li><a href="AboutUs.html">ABOUT</a></li>
+  </ul>
+
+  <div class="nav-tools">
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme">
+      <i class="fas fa-moon"></i>
+    </button>
+  </div>
+
+  <div class="nav-status">
+    <div class="status-dot" style="background:var(--green);box-shadow:0 0 8px var(--green);"></div>
+    <span class="status-text">FOUND REPORTS</span>
+  </div>
+</header>
+
+<div class="page-wrap">
+  <p class="page-eyebrow rise-1">// FOUND ITEM LOG</p>
+  <h1 class="page-title rise-2">REPORT A<br><span class="accent-cyan">FOUND ITEM</span></h1>
+  <p class="page-subtitle rise-3">Found something? Log it here. The owner may already be searching. Every entry brings them closer.</p>
+
+  <div class="layout">
+
+    <!-- FORM -->
+    <div class="rise-3">
+      <div class="report-panel">
+        <div class="report-panel-header">
+          <div class="dot"></div>
+          <h2>FOUND ITEM LOG</h2>
+        </div>
+        <div class="report-form">
+
+          <div class="alert-box">
+            <i class="fas fa-check-circle"></i>
+            <span>Thank you for logging a found item. The system will automatically scan for matching lost reports and alert potential owners.</span>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">ITEM NAME *</label>
+            <input id="nameInput" class="form-input" placeholder="e.g. iPhone 14 Pro in blue case">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">WHERE FOUND *</label>
+            <input id="locationInput" class="form-input" placeholder="e.g. Bus stop on Main St, outside Library">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">CATEGORY</label>
+            <select id="categorySelect" class="form-select">
+              <option value="general">GENERAL</option>
+              <option value="electronics">ELECTRONICS</option>
+              <option value="clothing">CLOTHING & ACCESSORIES</option>
+              <option value="documents">DOCUMENTS & ID</option>
+              <option value="keys">KEYS & CARDS</option>
+              <option value="bags">BAGS & LUGGAGE</option>
+              <option value="jewelry">JEWELRY & WATCHES</option>
+              <option value="pets">PETS</option>
+              <option value="other">OTHER</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">DESCRIPTION</label>
+            <textarea id="descInput" class="form-textarea" placeholder="Describe the item in detail. Any identifying marks, condition, contents visible..."></textarea>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">CONTACT INFO</label>
+            <input id="contactInput" class="form-input" placeholder="How should the owner reach you?">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">ITEM IMAGE <span style="color:var(--muted2);font-size:10px">(OPTIONAL)</span></label>
+            <div class="image-upload-area" id="uploadArea">
+              <input type="file" id="imageInput" accept="image/*" onchange="previewImage(event)">
+              <div class="image-upload-icon">📷</div>
+              <div class="image-upload-label">CLICK TO UPLOAD PHOTO</div>
+              <div style="font-size:11px;color:var(--muted2);margin-top:4px">JPG, PNG, WEBP — MAX 5MB</div>
+            </div>
+            <div class="image-preview-wrap" id="previewWrap">
+              <img id="previewImg" src="" alt="Preview">
+              <button class="image-preview-remove" onclick="removeImage()" title="Remove image">✕</button>
+            </div>
+          </div>
+
+          <button class="btn btn-found-primary" onclick="addItem('found')" style="width:100%;padding:14px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;cursor:pointer;border:none;border-radius:var(--radius);color:#050507;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--green)">
+            <i class="fas fa-broadcast-tower"></i> LOG FOUND ITEM
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div>
+      <div class="results-header">
+        <div>
+          <p style="font-family:'Space Mono',monospace;font-size:8px;color:var(--muted2);letter-spacing:3px;margin-bottom:4px">ACTIVE DATABASE</p>
+          <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:700;letter-spacing:1px">FOUND ITEM REGISTRY</h2>
+        </div>
+        <span class="results-count" id="resultsCount">— RECORDS</span>
+      </div>
+
+      <div class="search-bar" style="max-width:100%">
+        <i class="fas fa-search search-icon"></i>
+        <input id="searchInput" placeholder="Search found items by name, location..." oninput="searchItems()">
+      </div>
+
+      <div class="filter-bar">
+        <button class="chip active" data-filter="found" onclick="filterType('found', this)">ALL FOUND</button>
+        <button class="chip" onclick="filterByCat('electronics',this)">ELECTRONICS</button>
+        <button class="chip" onclick="filterByCat('documents',this)">DOCUMENTS</button>
+        <button class="chip" onclick="filterByCat('keys',this)">KEYS</button>
+        <button class="chip" onclick="filterByCat('jewelry',this)">JEWELRY</button>
+      </div>
+
+      <div class="items-grid" id="itemsGrid"></div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+<script src="../javascript/app.js"></script>
+<script src="../javascript/found.js"></script>
+</body>
+</html>

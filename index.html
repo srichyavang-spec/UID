@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RETRIEVAL — Lost & Found Command Network</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="siteLoader" class="site-loader">
+  <div class="loader-icon">📡</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-label">INITIALIZING NETWORK</div>
+</div>
+
+<!-- NAV -->
+<header class="top-nav">
+  <a href="index.html" class="nav-brand">
+    <div class="nav-brand-icon">📡</div>
+    <div class="nav-brand-text">
+      <span class="name">TRADE & TRACK</span>
+      <span class="sub"> PLATFORM</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">HOME</a></li>
+    <li><a href="html/lost.html">LOST</a></li>
+    <li><a href="html/found.html">FOUND</a></li>
+    <li><a href="html/trade.html">TRADE</a></li>
+    <li><a href="html/chat.html">CHANNEL</a></li>
+    <li><a href="html/profile.html">PROFILE</a></li>
+    <li><a href="html/AboutUs.html">ABOUT</a></li>
+  </ul>
+
+  <div class="nav-tools">
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme">
+      <i class="fas fa-moon"></i>
+    </button>
+  </div>
+
+  <div class="nav-status">
+    <div class="status-dot"></div>
+    <span class="status-text">NETWORK LIVE</span>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="radar-grid"></div>
+    <div class="radar-sweep-wrap">
+      <div class="radar-circle"></div>
+      <div class="radar-circle"></div>
+      <div class="radar-circle"></div>
+      <div class="radar-circle"></div>
+      <div class="radar-line"></div>
+      <div class="radar-dot" style="top:28%;left:62%;animation-delay:1.2s"></div>
+      <div class="radar-dot" style="top:58%;left:35%;animation-delay:2.8s"></div>
+      <div class="radar-dot" style="top:72%;left:70%;animation-delay:0.6s"></div>
+    </div>
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-tag">
+      <span>◆</span> ITEM RECOVERY SYSTEM v2.4
+    </div>
+    <h1 class="hero-title">
+      <span class="line1">TRADE</span>
+      <span class="line2">LOST</span>
+      <span class="line3">FOUND</span>
+    </h1>
+    <p class="hero-desc">
+      A tactical command network for reporting lost items, claiming found ones, and coordinating trades. Every signal matters. Every item deserves to be found.
+    </p>
+    <div class="hero-cta">
+      <button class="btn btn-primary" onclick="openLoginModal('html/lost.html')">
+        <i class="fas fa-exclamation-triangle"></i> REPORT LOST
+      </button>
+      <button class="btn btn-ghost" onclick="openLoginModal('html/found.html')">
+        <i class="fas fa-search"></i> I FOUND SOMETHING
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <span class="stat-num" id="dashTotal">0</span>
+    <div class="stat-label">TOTAL REPORTS</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num" id="dashLost" style="color:var(--red)">0</span>
+    <div class="stat-label">LOST ITEMS</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num" id="dashFound" style="color:var(--green)">0</span>
+    <div class="stat-label">FOUND ITEMS</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num" id="dashTrades" style="color:var(--cyan)">0</span>
+    <div class="stat-label">ACTIVE TRADES</div>
+  </div>
+</div>
+
+<!-- RECENT ITEMS -->
+<div class="page-wrap" style="padding-top: 60px;">
+  <div class="section-rule"><span>// RECENT TRANSMISSIONS</span></div>
+  <div class="items-grid" id="recentGrid"></div>
+
+  <div class="section-rule" style="margin-top:80px"><span>// HOW IT WORKS</span></div>
+  <div class="how-grid">
+    <div class="how-card" data-num="01">
+      <span class="how-icon">📋</span>
+      <div class="how-title">REPORT</div>
+      <p class="how-desc">Log a lost or found item with location details, description, and contact info. Your report enters the network instantly.</p>
+    </div>
+    <div class="how-card" data-num="02">
+      <span class="how-icon">🎯</span>
+      <div class="how-title">MATCH</div>
+      <p class="how-desc">Our system scans all reports for potential matches. When a lost item aligns with a found report, both parties are alerted.</p>
+    </div>
+    <div class="how-card" data-num="03">
+      <span class="how-icon">🤝</span>
+      <div class="how-title">REUNITE</div>
+      <p class="how-desc">Connect through our secure channel. Verify ownership, coordinate pickup, and close the loop. Item recovered.</p>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN MODAL -->
+<div class="modal-overlay" id="loginModal" onclick="handleOverlayClick(event)">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <div class="modal-header-dot"></div>
+        <h3>ACCESS REQUIRED</h3>
+      </div>
+      <button class="modal-close" onclick="closeLoginModal()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-info">
+        <i class="fas fa-lock"></i> Sign in to submit reports to the network.
+      </div>
+      <div class="modal-tabs">
+        <button class="modal-tab active" onclick="switchTab('login')">SIGN IN</button>
+        <button class="modal-tab" onclick="switchTab('register')">REGISTER</button>
+      </div>
+
+      <!-- LOGIN TAB -->
+      <div class="tab-panel active" id="tab-login">
+        <div class="form-field">
+          <label class="form-label">USERNAME / EMAIL</label>
+          <input class="form-input" id="loginUser" type="text" placeholder="operative@network.io">
+        </div>
+        <div class="form-field">
+          <label class="form-label">PASSWORD</label>
+          <input class="form-input" id="loginPass" type="password" placeholder="••••••••">
+        </div>
+        <button class="btn btn-primary" style="width:100%;padding:13px;justify-content:center;" onclick="handleLogin()">
+          <i class="fas fa-sign-in-alt"></i> AUTHENTICATE
+        </button>
+      </div>
+
+      <!-- REGISTER TAB -->
+      <div class="tab-panel" id="tab-register">
+        <div class="form-field">
+          <label class="form-label">USERNAME</label>
+          <input class="form-input" id="regUser" type="text" placeholder="Choose a callsign">
+        </div>
+        <div class="form-field">
+          <label class="form-label">EMAIL</label>
+          <input class="form-input" id="regEmail" type="email" placeholder="operative@network.io">
+        </div>
+        <div class="form-field">
+          <label class="form-label">PASSWORD</label>
+          <input class="form-input" id="regPass" type="password" placeholder="Min. 6 characters">
+        </div>
+        <button class="btn btn-primary" style="width:100%;padding:13px;justify-content:center;" onclick="handleRegister()">
+          <i class="fas fa-user-plus"></i> CREATE ACCOUNT
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<script src="javascript/app.js"></script>
+<script src="javascript/index.js"></script>
+</body>
+</html>

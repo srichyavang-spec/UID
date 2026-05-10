@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RETRIEVAL — Community Channel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/chat.css">
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="siteLoader" class="site-loader">
+  <div class="loader-icon">💬</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-label">OPENING CHANNEL</div>
+</div>
+
+<!-- NAV -->
+<header class="top-nav">
+  <a href="../index.html" class="nav-brand">
+    <div class="nav-brand-icon">📡</div>
+    <div class="nav-brand-text">
+      <span class="name">TRADE & TRACK</span>
+      <span class="sub"> PLATFORM</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">HOME</a></li>
+    <li><a href="lost.html">LOST</a></li>
+    <li><a href="found.html">FOUND</a></li>
+    <li><a href="trade.html">TRADE</a></li>
+    <li><a href="chat.html" class="active">CHANNEL</a></li>
+    <li><a href="profile.html">PROFILE</a></li>
+    <li><a href="AboutUs.html">ABOUT</a></li>
+  </ul>
+
+  <div class="nav-tools">
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme">
+      <i class="fas fa-moon"></i>
+    </button>
+  </div>
+
+  <div class="nav-status">
+    <div class="status-dot"></div>
+    <span class="status-text">CHANNEL OPEN</span>
+  </div>
+</header>
+
+<div class="page-wrap">
+  <p class="page-eyebrow rise-1">// OPEN CHANNEL</p>
+  <h1 class="page-title rise-2">COMMUNITY<br><span class="accent-amber">CHANNEL</span></h1>
+  <p class="page-subtitle rise-3">Live coordination hub. Coordinate pickups, ask questions, share updates with the network.</p>
+
+  <div class="chat-layout">
+
+    <!-- SIDEBAR -->
+    <div>
+      <div class="chat-sidebar">
+        <div class="sidebar-section-title">// ONLINE USERS</div>
+        <div id="onlineUsers">
+          <div class="online-user">
+            <div class="online-dot"></div>
+            <span class="user-name-chip">ABHIJITH</span>
+          </div>
+          <div class="online-user">
+            <div class="online-dot" style="background:var(--amber);box-shadow:0 0 6px var(--amber)"></div>
+            <span class="user-name-chip">KRISHNA</span>
+          </div>
+          <div class="online-user">
+            <div class="online-dot"></div>
+            <span class="user-name-chip">MOKSHITH</span>
+          </div>
+          <div class="online-user">
+            <div class="online-dot"></div>
+            <span class="user-name-chip">RITHVIN</span>
+          </div>
+        </div>
+
+        <div class="section-rule" style="margin: 20px 0 16px"><span>CHANNELS</span></div>
+        <div class="sidebar-section-title">// NETWORK STATS</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:12px;color:var(--muted)">Total Items</span>
+            <span style="font-family:'Space Mono',monospace;font-size:10px;color:var(--amber)" id="sidebarTotal">0</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:12px;color:var(--muted)">Messages</span>
+            <span style="font-family:'Space Mono',monospace;font-size:10px;color:var(--amber)" id="sidebarMsgs">0</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:12px;color:var(--muted)">Active Trades</span>
+            <span style="font-family:'Space Mono',monospace;font-size:10px;color:var(--amber)" id="sidebarTrades">0</span>
+          </div>
+        </div>
+
+        <div class="section-rule" style="margin: 20px 0 16px"><span>QUICK ACTIONS</span></div>
+        <a href="lost.html" class="btn btn-ghost" style="width:100%;justify-content:flex-start;gap:10px;margin-bottom:8px">
+          <span style="color:var(--red)">🔴</span> REPORT LOST
+        </a>
+        <a href="found.html" class="btn btn-ghost" style="width:100%;justify-content:flex-start;gap:10px">
+          <span style="color:var(--green)">🟢</span> LOG FOUND
+        </a>
+      </div>
+    </div>
+
+    <!-- MAIN CHAT -->
+    <div class="chat-main">
+      <div class="chat-header">
+        <div class="chat-header-left">
+          <div>
+            <div class="channel-tag"># GENERAL</div>
+            <div class="channel-desc">Network-wide coordination channel</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <div class="status-dot"></div>
+          <span class="status-text" id="onlineCount">4 ONLINE</span>
+        </div>
+      </div>
+
+      <!-- Pinned notices -->
+      <div style="padding: 16px 24px; border-bottom: 1px solid var(--border)">
+        <div class="pinned-notice">
+          📌 <strong>PINNED:</strong> This is a public channel. For item-specific discussions, use the Contact button on individual item cards. Be respectful and helpful.
+        </div>
+      </div>
+
+      <div class="chat-box" id="chatBox">
+        <!-- Messages rendered here -->
+      </div>
+
+      <div class="chat-input-row">
+        <input id="msgInput" placeholder="Send a message..." onkeydown="if(event.key==='Enter')sendMsg()">
+        <button class="btn btn-primary" onclick="sendMsg()" style="padding:12px 20px">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+<script src="../javascript/app.js"></script>
+<script src="../javascript/chat.js"></script>
+</body>
+</html>

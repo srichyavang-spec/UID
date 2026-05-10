@@ -1,0 +1,162 @@
+.layout { display: grid; grid-template-columns: 400px 1fr; gap: 48px; align-items: start; }
+    @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+ 
+    .trade-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+ 
+    .trade-panel-header {
+      background: var(--amber-glow);
+      border-bottom: 1px solid rgba(245,158,11,0.15);
+      padding: 22px 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+ 
+    .trade-panel-header .dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--amber);
+      box-shadow: 0 0 10px var(--amber);
+      flex-shrink: 0;
+    }
+ 
+    .trade-panel-header h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+ 
+    .trade-form { padding: 28px; display: flex; flex-direction: column; gap: 18px; }
+ 
+    .trade-arrow-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+ 
+    .trade-arrow {
+      font-size: 22px;
+      color: var(--amber);
+      flex-shrink: 0;
+      animation: arrowPulse 2s ease-in-out infinite;
+    }
+ 
+    @keyframes arrowPulse {
+      0%, 100% { transform: translateX(0); opacity: 0.7; }
+      50% { transform: translateX(4px); opacity: 1; }
+    }
+ 
+    .condition-pills {
+      display: flex;
+      gap: 8px;
+    }
+ 
+    .pill-radio {
+      flex: 1;
+    }
+ 
+    .pill-radio input[type="radio"] { display: none; }
+ 
+    .pill-radio label {
+      display: block;
+      text-align: center;
+      padding: 9px 6px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-family: 'Space Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 1px;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+ 
+    .pill-radio input:checked + label {
+      background: var(--amber-glow);
+      border-color: rgba(245,158,11,0.35);
+      color: var(--amber);
+    }
+ 
+    /* Trade card extras */
+    .trade-card-arrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      background: rgba(245,158,11,0.04);
+      border-top: 1px solid rgba(245,158,11,0.08);
+      border-bottom: 1px solid var(--border);
+    }
+ 
+    .trade-card-arrow .from {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      flex: 1;
+    }
+ 
+    .trade-card-arrow .arrow-icon {
+      color: var(--amber);
+      font-size: 14px;
+    }
+ 
+    .trade-card-arrow .to {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--amber);
+      flex: 1;
+      text-align: right;
+    }
+ 
+    .results-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    /* Image Upload */
+    .image-upload-area {
+      border: 2px dashed rgba(245,158,11,0.3);
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      background: rgba(245,158,11,0.02);
+      position: relative;
+    }
+    .image-upload-area:hover {
+      border-color: rgba(245,158,11,0.6);
+      background: rgba(245,158,11,0.05);
+    }
+    .image-upload-area input[type="file"] {
+      position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
+    }
+    .image-upload-icon { font-size: 24px; margin-bottom: 6px; }
+    .image-upload-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px; letter-spacing: 1px; color: var(--muted);
+    }
+    .image-preview-wrap { position: relative; display: none; margin-top: 10px; }
+    .image-preview-wrap img {
+      width: 100%; max-height: 160px; object-fit: cover;
+      border-radius: var(--radius); border: 1px solid var(--border);
+    }
+    .image-preview-remove {
+      position: absolute; top: 6px; right: 6px;
+      background: rgba(239,68,68,0.85); border: none; border-radius: 50%;
+      width: 24px; height: 24px; color: #fff; font-size: 12px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+    }
+    .item-card-img {
+      width: 100%; max-height: 140px; object-fit: cover;
+      border-radius: var(--radius); margin-bottom: 10px;
+      border: 1px solid var(--border);
+    }

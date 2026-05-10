@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RETRIEVAL — Trade Items</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/trade.css">
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="siteLoader" class="site-loader">
+  <div class="loader-icon">🔄</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-label">LOADING TRADE EXCHANGE</div>
+</div>
+
+<!-- NAV -->
+<header class="top-nav">
+  <a href="../index.html" class="nav-brand">
+    <div class="nav-brand-icon">📡</div>
+    <div class="nav-brand-text">
+      <span class="name">TRADE & TRACK</span>
+      <span class="sub"> PLATFORM</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">HOME</a></li>
+    <li><a href="lost.html">LOST</a></li>
+    <li><a href="found.html">FOUND</a></li>
+    <li><a href="trade.html" class="active">TRADE</a></li>
+    <li><a href="chat.html">CHANNEL</a></li>
+    <li><a href="profile.html">PROFILE</a></li>
+    <li><a href="AboutUs.html">ABOUT</a></li>
+  </ul>
+
+  <div class="nav-tools">
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme">
+      <i class="fas fa-moon"></i>
+    </button>
+  </div>
+
+  <div class="nav-status">
+    <div class="status-dot" style="background:var(--amber);box-shadow:0 0 8px var(--amber);"></div>
+    <span class="status-text">TRADE EXCHANGE</span>
+  </div>
+</header>
+
+<div class="page-wrap">
+  <p class="page-eyebrow rise-1">// BARTER EXCHANGE</p>
+  <h1 class="page-title rise-2">ITEM<br><span class="accent-amber">TRADE BOARD</span></h1>
+  <p class="page-subtitle rise-3">List items you want to exchange. Browse offers, propose trades, and coordinate directly with other operatives.</p>
+
+  <div class="layout">
+
+    <!-- FORM -->
+    <div class="rise-3">
+      <div class="trade-panel">
+        <div class="trade-panel-header">
+          <div class="dot"></div>
+          <h2>NEW TRADE OFFER</h2>
+        </div>
+        <div class="trade-form">
+
+          <div class="form-field">
+            <label class="form-label">ITEM YOU'RE OFFERING *</label>
+            <input id="tradeNameInput" class="form-input" placeholder="e.g. Sony WH-1000XM4 Headphones">
+          </div>
+
+          <div class="trade-arrow-row">
+            <div style="flex:1;height:1px;background:var(--border)"></div>
+            <div class="trade-arrow">⇄</div>
+            <div style="flex:1;height:1px;background:var(--border)"></div>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">WHAT YOU WANT IN RETURN *</label>
+            <input id="tradeForInput" class="form-input" placeholder="e.g. Mechanical keyboard, or offers">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">ITEM CONDITION</label>
+            <div class="condition-pills">
+              <div class="pill-radio">
+                <input type="radio" name="cond" id="cond-new" value="new">
+                <label for="cond-new">NEW</label>
+              </div>
+              <div class="pill-radio">
+                <input type="radio" name="cond" id="cond-good" value="good" checked>
+                <label for="cond-good">GOOD</label>
+              </div>
+              <div class="pill-radio">
+                <input type="radio" name="cond" id="cond-fair" value="fair">
+                <label for="cond-fair">FAIR</label>
+              </div>
+              <div class="pill-radio">
+                <input type="radio" name="cond" id="cond-worn" value="worn">
+                <label for="cond-worn">WORN</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">ADDITIONAL NOTES</label>
+            <textarea id="descInput" class="form-textarea" placeholder="Any details about the item, photos available, pickup location preference..." style="min-height:70px"></textarea>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">ITEM IMAGE <span style="color:var(--muted2);font-size:10px">(OPTIONAL)</span></label>
+            <div class="image-upload-area" id="uploadArea">
+              <input type="file" id="imageInput" accept="image/*" onchange="previewImage(event)">
+              <div class="image-upload-icon">📷</div>
+              <div class="image-upload-label">CLICK TO UPLOAD PHOTO</div>
+              <div style="font-size:11px;color:var(--muted2);margin-top:4px">JPG, PNG, WEBP — MAX 5MB</div>
+            </div>
+            <div class="image-preview-wrap" id="previewWrap">
+              <img id="previewImg" src="" alt="Preview">
+              <button class="image-preview-remove" onclick="removeImage()" title="Remove image">✕</button>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" onclick="submitTrade()" style="width:100%;padding:14px;">
+            <i class="fas fa-exchange-alt"></i> LIST TRADE OFFER
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick stats -->
+      <div class="card" style="margin-top:24px;display:flex;gap:24px;padding:18px 22px">
+        <div style="text-align:center">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;color:var(--amber)" id="tradeCount">0</div>
+          <div style="font-family:'Space Mono',monospace;font-size:8px;color:var(--muted2);letter-spacing:1px">ACTIVE OFFERS</div>
+        </div>
+        <div style="width:1px;background:var(--border)"></div>
+        <div style="flex:1;font-size:13px;color:var(--muted);line-height:1.7">
+          All trades are peer-to-peer. RETRIEVAL facilitates connections — final transactions are between operatives.
+        </div>
+      </div>
+    </div>
+
+    <!-- TRADE LISTINGS -->
+    <div>
+      <div class="results-header">
+        <div>
+          <p style="font-family:'Space Mono',monospace;font-size:8px;color:var(--muted2);letter-spacing:3px;margin-bottom:4px">EXCHANGE BOARD</p>
+          <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:700;letter-spacing:1px">OPEN TRADE OFFERS</h2>
+        </div>
+        <span style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted2)" id="tradeResultCount">— OFFERS</span>
+      </div>
+
+      <div class="search-bar" style="max-width:100%;margin-bottom:20px">
+        <i class="fas fa-search search-icon"></i>
+        <input id="tradeSearch" placeholder="Search offers..." oninput="filterTrades()">
+      </div>
+
+      <div class="filter-bar">
+        <button class="chip active" onclick="setTradeFilter('all',this)">ALL OFFERS</button>
+        <button class="chip" onclick="setTradeFilter('new',this)">NEW CONDITION</button>
+        <button class="chip" onclick="setTradeFilter('good',this)">GOOD CONDITION</button>
+        <button class="chip" onclick="setTradeFilter('fair',this)">FAIR / WORN</button>
+      </div>
+
+      <div class="items-grid" id="tradesGrid"></div>
+    </div>
+
+  </div>
+</div>
+
+<div id="toast"></div>
+<script src="../javascript/app.js"></script>
+<script src="../javascript/trade.js"></script>
+</body>
+</html>

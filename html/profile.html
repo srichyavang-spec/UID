@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RETRIEVAL — Operative Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+
+<div id="siteLoader" class="site-loader">
+  <div class="loader-icon">🧑‍💻</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-label">LOADING PROFILE PAGE</div>
+</div>
+
+<header class="top-nav">
+  <a href="../index.html" class="nav-brand">
+    <div class="nav-brand-icon">📡</div>
+    <div class="nav-brand-text">
+      <span class="name">TRADE & TRACK</span>
+      <span class="sub">PLATFORM</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">HOME</a></li>
+    <li><a href="lost.html">LOST</a></li>
+    <li><a href="found.html">FOUND</a></li>
+    <li><a href="trade.html">TRADE</a></li>
+    <li><a href="chat.html">CHANNEL</a></li>
+    <li><a href="profile.html" class="active">PROFILE</a></li>
+    <li><a href="AboutUs.html">ABOUT</a></li>
+  </ul>
+  <div class="nav-tools">
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme">
+      <i class="fas fa-moon"></i>
+    </button>
+  </div>
+  <div class="nav-status">
+    <div class="status-dot"></div>
+    <span class="status-text" id="navUserDisplay">USERNAME</span>
+  </div>
+</header>
+
+<div class="page-wrap">
+  <p class="page-eyebrow rise-1">// ACCOUNT</p>
+  <h1 class="page-title rise-2">YOUR<br><span class="accent-amber">PROFILE</span></h1>
+  <p class="page-subtitle rise-3">Track your contributions, manage your account, and view your network activity.</p>
+
+  <div class="profile-layout">
+
+    <!-- LEFT: PROFILE CARD -->
+    <div class="rise-3" style="align-self:start">
+      <div class="profile-card">
+        <div class="profile-banner">
+          <div class="profile-avatar">🧑‍💻</div>
+        </div>
+        <div class="profile-info">
+          <div class="profile-name" id="profileName">USERNAME</div>
+          <div class="profile-rank">COMMUNITY MEMBER · LEVEL III</div>
+          <div class="profile-bio">Active network contributor. Helping reunite lost items with their owners since joining the network.</div>
+
+          <div class="stat-grid-mini">
+            <div class="stat-mini"><span class="stat-mini-num" id="statTotal" style="color:var(--amber)">0</span><span class="stat-mini-label">TOTAL REPORTS</span></div>
+            <div class="stat-mini"><span class="stat-mini-num" id="statLost" style="color:var(--red)">0</span><span class="stat-mini-label">LOST FILED</span></div>
+            <div class="stat-mini"><span class="stat-mini-num" id="statFound" style="color:var(--green)">0</span><span class="stat-mini-label">FOUND LOGGED</span></div>
+            <div class="stat-mini"><span class="stat-mini-num" id="statTrade" style="color:var(--cyan)">0</span><span class="stat-mini-label">TRADES LISTED</span></div>
+          </div>
+
+          <div style="margin-top:20px">
+            <div class="form-label" style="margin-bottom:8px">CHANGE USERNAME</div>
+            <div class="name-edit-row">
+              <input id="newNameInput" class="form-input" placeholder="New username">
+              <button class="btn btn-primary btn-sm" onclick="changeName()">SET</button>
+            </div>
+          </div>
+
+          <div class="profile-contact-mini">
+            <div class="form-field">
+              <label class="form-label">EMAIL ADDRESS</label>
+              <div class="name-edit-row">
+                <input id="profileEmailInput" class="form-input" type="email" placeholder="Enter your email">
+                <button class="btn btn-primary btn-sm" onclick="saveEmail()">SET</button>
+              </div>
+            </div>
+            <div class="form-field">
+              <label class="form-label">PHONE NUMBER</label>
+              <div class="name-edit-row">
+                <input id="profilePhoneInput" class="form-input" type="tel" placeholder="Enter your phone number">
+                <button class="btn btn-primary btn-sm" onclick="savePhone()">SET</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: DETAILS -->
+    <div>
+      <div class="section-rule" style="margin-top:0"><span>// ACHIEVEMENTS</span></div>
+      <div class="achievements-grid">
+        <div class="achievement" id="ach-first"><span class="achievement-icon">🥇</span><span class="achievement-name">FIRST REPORT</span></div>
+        <div class="achievement" id="ach-found"><span class="achievement-icon">🔍</span><span class="achievement-name">FINDER</span></div>
+        <div class="achievement" id="ach-trader"><span class="achievement-icon">🔄</span><span class="achievement-name">TRADER</span></div>
+        <div class="achievement" id="ach-active"><span class="achievement-icon">⚡</span><span class="achievement-name">ACTIVE OPS</span></div>
+        <div class="achievement" id="ach-chat"><span class="achievement-icon">💬</span><span class="achievement-name">COMMUNICATOR</span></div>
+        <div class="achievement locked" id="ach-legend"><span class="achievement-icon">🏆</span><span class="achievement-name">LEGEND</span></div>
+      </div>
+
+      <div class="section-rule"><span>// ACCOUNT SETTINGS</span></div>
+      <div class="settings-section">
+        <div class="settings-header">PROFILE SETTINGS</div>
+        <div class="settings-row"><span class="settings-row-label">Profile Status</span><span class="settings-row-value" style="color:var(--green)">● ACTIVE</span></div>
+        <div class="settings-row"><span class="settings-row-label">Match Notifications</span><span class="settings-row-value" style="color:var(--amber)">ENABLED</span></div>
+        <div class="settings-row"><span class="settings-row-label">Items in Profile</span><span class="settings-row-value" id="settingsTotal">0</span></div>
+        <div class="settings-row"><span class="settings-row-label">Chat Messages Sent</span><span class="settings-row-value" id="settingsMsgs">0</span></div>
+        <div class="settings-row"><span class="settings-row-label">Data Storage</span><span class="settings-row-value">LOCAL ONLY</span></div>
+        <div class="settings-row"><span class="settings-row-label" style="color:var(--red)">Clear All Data</span><button class="btn btn-danger btn-sm" onclick="clearAllData()">CLEAR DATA</button></div>
+      </div>
+
+      <div class="section-rule"><span>// RECENT ACTIVITY</span></div>
+      <div id="activityList"></div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+<script src="../javascript/app.js"></script>
+<script src="../javascript/profile.js"></script>
+</body>
+</html>
